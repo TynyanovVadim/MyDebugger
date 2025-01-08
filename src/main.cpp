@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
         ptrace(PTRACE_TRACEME, 0, nullptr, nullptr);
         execl(prog, prog, nullptr);
     } else if (pid >= 1) { // we`re in parent procces
-        Debugger dbg{prog, pid};
+        debugger::Debugger dbg{prog, pid};
         dbg.run();
     }
 
